@@ -1,0 +1,107 @@
+import turtle as t
+#tip: tab을 눌러보면 사용할 수 있는 함수,변수 목록이 뜹니다. 예로 't.'이후 tab을 누르게 되면 t라는 인스턴스 변수가 사용할 수 있는
+#turtle안의 함수들 목록이 뜨게 됩니다.
+# + 변수나 함수가 길어서 만들다 귀찮으면 tab누름 됌.
+
+'''단축키는 위에 키보드 모양.
+command의 뜻은 옆의 빈칸을 클릭한다는 의미'''
+
+t.shape("turtle")
+t.forward(50)
+t.right(90)
+t.forward(50)
+
+
+------------
+
+import turtle as t
+import turtle as f
+
+#삼각형 그리기
+t.shape("arrow")
+f.shape("turtle")
+f.forward(100)
+t.backward(100)
+f.right(90)
+t.left(120)
+t.forward(100)
+f.forward(100)
+t.left(120)
+f.left(90)
+t.forward(100)
+f.forward(100)
+t.left(120)
+f.left(90)
+f.forward(100)
+f.left(90)
+
+#사각형 그리기
+t.forward(100)
+t.left(90)
+t.forward(100)
+t.left(90)
+t.forward(100)
+t.left(90)
+t.forward(100)
+t.left(90)
+
+#원 그리기
+t.circle(50) #반지름이 50
+
+#다른 그림
+
+-------------
+
+from turtle import *
+
+#from object import *
+'''
+*의 뜻은 '모든'이라는 뜻 이전에는 t와 f를 인스턴스변수로 둘다 선언했지만, turtle이라는 외부 모듈,object(class)를 불러오면서 동시에
+t,f를 선언했으므로 t와 f는 불러온 하나의 turtle에 귀속되어 버림. 따라서 두 개를 각 따로 실행해도 하나로 인식됨.
+하지만 from object import *는 object를 안에 있는 모든 함수(function)들을 다 불러온 상태에서 작업을 시작.
+불러온 후에 인스턴스 변수를 하나씩 생성하므로 각 컴퓨터의 메모리가 선언한 각 변수가 각각 할당 됨. 그래서 따로.
+'''
+
+turtle1 = Turtle()
+turtle2 = Turtle()
+turtle1.color("red")
+turtle2.color("blue")
+turtle1.shape("arrow")
+turtle2.shape("turtle")
+
+
+turtle1.forward(100)
+turtle2.backward(100)
+turtle2.forward(100)
+turtle2.left(90)
+turtle2.forward(100)
+turtle2.left(90)
+turtle2.forward(100)
+turtle2.left(90)
+turtle2.forward(100)
+turtle2.left(90)
+
+turtle1.forward(100)
+turtle1.left(120)
+turtle1.forward(100)
+turtle1.left(120)
+turtle1.forward(100)
+turtle1.left(120)
+
+turtle1.pensize(5)
+turtle2.pensize(2)
+turtle2.forward(100)
+turtle1.backward(100)
+turtle2.left(90)
+turtle1.left(120)
+turtle2.forward(100)
+turtle1.forward(100)
+turtle2.left(90)
+turtle1.left(120)
+turtle2.forward(100)
+turtle2.left(90)
+turtle1.forward(100)
+turtle2.forward(100)
+turtle1.left(120)
+turtle2.left(90)
+turtle1.forward(100)
