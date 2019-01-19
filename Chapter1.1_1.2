@@ -1,0 +1,63 @@
+import pandas as pd
+
+#pands import. 엑셀 등 행렬처리 함수들이 저장된 module.
+
+help("pandas")
+
+
+
+
+#data 불러오기
+
+CCTV_Seoul = pd.read_csv('../data/01.CCTV_in_Seoul.csv', encoding='utf-8')
+CCTV_Seoul.head()
+
+#..이라는 것은 상대경로를 의미.
+#1) 컴퓨터 내에 환경변수로 설정되어 있다면(혹은 한다면) 해당 환경변수아래 경로의 폴더들은 전부 ...으로 접근할 수 있음
+#2) 지금은 환경변수를 설정하지 않아도 현재 Python저장파일이 저장된 위치를 경로로 인식하기 때문에 위와같이 쓸 수 있는 것
+
+
+
+#데이터 column(열, 파이썬에서는 첫줄) 보기
+
+CCTV_Seoul.columns
+
+CCTV_Seoul.columns[0]
+
+
+
+#columns안의 행렬을 찾아 이름 바꾸기.P27
+
+CCTV_Seoul.rename(columns={CCTV_Seoul.columns[0] : '구별'}, inplace = True)
+CCTV_Seoul.head()
+# inplace = False로 하면 보여주기만 바뀜.
+
+
+#Seoul 인구 데이터 읽기
+
+pop_Seoul = pd.read_excel('../data/01.population_in_Seoul.xls' ,encoding = 'utf-8')
+pop_Seoul.head()
+
+
+
+#특정 열만 선택해서 보기 p28~29
+
+pop_Seoul = pd.read_excel('../data/01.population_in_Seoul.xls', 
+                          header = 2,
+                          usecols = 'B,D,G,J,N',                          
+                          encoding = 'utf-8')
+
+
+#parse 혹은 parsing이라는 것은 프로그래밍 상에서 다른 응용소프트웨어(엑셀, 파워포인트 등)의 데이터를 끌어다 쓰는 것을 의미.
+#parse_cols 를 쓰면 'deprecated'가 뜰 텐데 이는 조만간 없어질 코드라는 것을 의미. usecols를 쓰자.
+
+
+#rename
+
+pop_Seoul.rename(columns = {pop_Seoul.columns[0] : '구별',
+                            pop_Seoul.columns[1] : '인구수',
+                            pop_Seoul.columns[2] : '한국인',
+                            pop_Seoul.columns[3] : '외국인',
+                            pop_Seoul.columns[4] : '고령자'}, inplace = True)
+
+pop_Seoul.head()
